@@ -1,0 +1,63 @@
+Sinatra Sprockets!
+====================
+
+Because Sprockets is cool, and Rails is cool, but they shouldn't get married.
+
+Installation
+------------
+
+Run 
+
+    gem install sinatra-sprockets
+
+Or add
+
+    gem 'sinatra-sprockets'
+    
+to your Gemfile
+
+Setup
+------------
+
+Sinatra Sprockets needs to be configured to work properly. In your server initialization, add a configuration :
+
+    Sinatra::Sprockets.configure do |config|
+      config.app = MyApp
+  
+      ['stylesheets', 'javascripts', 'images'].each do |dir|
+        config.append_path(File.join('app', 'assets', dir))
+      end
+    end
+
+The only required field is `app` which is necessary to translate app configuration to Sprockets. You will also want to `append_paths` as none are included by default. See Configuration for more information.
+
+Include `Sinatra::Sprockets::Helpers` as helpers in your application :
+
+    helpers Sinatra::Sprockets::Helpers
+
+And mount the environment :
+
+  mount '/assets' do
+    run Sinatra::Sprockets.environment
+  end
+
+Configuration
+------------
+Sprockets requires a decent amount of configuration to work properly. Most of the options listed here are taken from the Sprockets/Rails integration. You can get more detailed information in the [Rails guide on asset pipelines](http://guides.rubyonrails.org/asset_pipeline.html).
+
+`digest` : Boolean value. Should Sprockets use "digest" asset paths? That is, should asset paths be fingerprinted using file digests for cache busting? For more information. This is on by default, though you may want to turn it off in development.
+
+`debug` : Boolean value. Should sprockets include assets for debugging? That is, should assets be rendered as individual included files for debugging or as the combination? When on, javascript and stylesheet debugging are much easier. Off by default, though you probably want to turn it on in development.
+
+`compile`: Boolean value. 
+  
+
+Known Issues
+------------
+
+There's no testing or documentation. I know. Want to help?
+
+Anything else?
+------------
+
+Questions, requests, concerns? Find me at [the gorgon lab](http://www.thegorgonlab.com)

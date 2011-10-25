@@ -9,16 +9,10 @@ Gem::Specification.new do |s|
   s.authors     = ["thegorgon"]
   s.email       = ["jessereiss@gmail.com"]
   s.homepage    = "http://github.com/thegorgon/sinatra-sprockets"
-  s.summary     = %q{Use Sprockets effectively with Sinatra.}
+  s.summary     = %q{Sinatra helpers for Sprockets integration.}
   s.description = %q{Use Sprockets effectively with Sinatra.}
 
   s.rubyforge_project = s.name
-
-  gem 'uglifier'
-  gem 'closure-compiler'
-  gem 'yui-compressor', :require => "yui/compressor"
-  gem 'execjs'
-  gem 'therubyracer'
 
   s.add_runtime_dependency 'sprockets',       '~> 2.0.0'
   s.add_runtime_dependency 'uglifier'

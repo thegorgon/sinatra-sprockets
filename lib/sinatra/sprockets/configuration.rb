@@ -4,7 +4,7 @@ module Sinatra
       DEFAULTS = {
         :digest => true, 
         :debug => false, 
-        :compile => true, 
+        :compile => false, 
         :compress => true,
         :prefix => "assets", 
         :host => nil, 
