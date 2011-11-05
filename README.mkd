@@ -37,9 +37,9 @@ Include `Sinatra::Sprockets::Helpers` as helpers in your application :
 
 And mount the environment :
 
-  mount '/assets' do
-    run Sinatra::Sprockets.environment
-  end
+    map '/assets' do
+      run Sinatra::Sprockets.environment
+    end
 
 Configuration
 ------------
